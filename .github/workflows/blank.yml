@@ -1,11 +1,14 @@
 name: env
 on: workflow_dispatch
 env:
-  APP_ENV: "dev"
+  APP_ENV: dev
 jobs:
- test:
-  env:
-   APP_ENV: "test"
-  runs-on: ubuntu-latest
-  steps:
-    - run: echo Hello $APP_ENV
+  dev:
+    env:
+      APP_ENV: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: use variables
+        env:
+         APP_ENV: uat
+        run: echo $APP_ENV
